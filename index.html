@@ -63,6 +63,10 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #c4b5fd;
         }
         /* Features section */
         .features {
@@ -86,6 +90,10 @@
             background-color: #f3e8ff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
         .feature-icon {
             font-size: 3rem;
@@ -113,6 +121,15 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
         .course-content {
             padding: 1.5rem;
@@ -238,12 +255,10 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .creator-info {
             color: #f3e8ff;
             font-size: 0.9rem;
         }
-
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -314,6 +329,7 @@
                 <h3>Nuestros Cursos Jurásicos</h3>
                 <div class="course-grid">
                     <div class="course-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl9UIDtGySblI8eY79OCcnp4Ax8X0U_sAf0g&s" alt="Dinosaurio chef cocinando" class="course-image">
                         <div class="course-content">
                             <h4 class="course-title">Dino clase</h4>
                             <p class="course-description">Aprende los fundamentos de la cocina prehistórica</p>
@@ -324,6 +340,7 @@
                         </div>
                     </div>
                     <div class="course-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiBrFnIBoqkW3sgs2eurG342IlbM2iFSs2CQ&s" alt="Dinosaurio cocinando en una cueva" class="course-image">
                         <div class="course-content">
                             <h4 class="course-title">Curso Prehistórico</h4>
                             <p class="course-description">Domina las técnicas avanzadas de la cocina jurásica</p>
@@ -334,6 +351,7 @@
                         </div>
                     </div>
                     <div class="course-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtBPRg2pGFxksbvanDAOvr49glRZMKIOMkKQ&s" alt="Pastel con forma de dinosaurio" class="course-image">
                         <div class="course-content">
                             <h4 class="course-title">Curso de Dinopasteles</h4>
                             <p class="course-description">Especialízate en la repostería de la era mesozoica</p>
@@ -359,7 +377,7 @@
                     <div class="testimonial-card">
                         <h4 class="testimonial-name">Rex T.</h4>
                         <div class="testimonial-stars">★★★★☆</div>
-                        <p>"Nunca pensé que podría hacer más que cazar, ¡pero ahora soy un chef de primera!"</p>
+                        <p>"Nunca pensé que podría hacer más que cazar, ¡pero ahora soy un chef de  primera!"</p>
                     </div>
                     <div class="testimonial-card">
                         <h4 class="testimonial-name">Veloci Raptor</h4>
@@ -402,9 +420,9 @@
 
     <div id="inscripcionModal" class="modal">
         <div class="modal-content">
-            <span class="close"    onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <h2>Inscripción para <span id="cursoTitulo"></span></h2>
-            <form id="inscripcionForm"   onsubmit="return handleSubmit(event)">
+            <form id="inscripcionForm" onsubmit="return handleSubmit(event)">
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
