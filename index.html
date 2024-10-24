@@ -1,16 +1,435 @@
-## Hi there 👋
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinoGang - Cocina Prehistórica</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3e8ff;
+            color: #4a0e78;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header styles */
+        header {
+            background-color: #8b5cf6;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        /* Hero section */
+        .hero {
+            background-color: #a78bfa;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ddd6fe;
+            color: #5b21b6;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        /* Features section */
+        .features {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        .features h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #5b21b6;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: #f3e8ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+        }
+        /* Courses section */
+        .courses {
+            background-color: #ddd6fe;
+            padding: 4rem 0;
+        }
+        .courses h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #5b21b6;
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .course-content {
+            padding: 1.5rem;
+        }
+        .course-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #5b21b6;
+        }
+        .course-description {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b5cf6;
+        }
+        /* Testimonials section */
+        .testimonials {
+            background-color: white;
+            padding: 4rem 0;
+        }
+        .testimonials h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #5b21b6;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background-color: #f3e8ff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #5b21b6;
+        }
+        .testimonial-stars {
+            color: #a78bfa;
+            margin-bottom: 1rem;
+        }
+        /* Footer styles */
+        footer {
+            background-color: #5b21b6;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #8b5cf6;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .feature-grid,
+            .course-grid,
+            .testimonial-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<!--
-**KevYry/Kevyry** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+    <main>
+        <section class="hero" id="inicio">
+            <div class="container">
+                <h2>¡Cocina como un Dinosaurio!</h2>
+                <p>Aprende recetas prehistóricas con un toque moderno</p>
+                <a href="#cursos" class="btn">¡Empieza tu aventura culinaria!</a>
+            </div>
+        </section>
 
-Here are some ideas to get you started:
+        <section class="features" id="sobre-nosotros">
+            <div class="container">
+                <h3>¿Por qué elegir DinoGang?</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🍳</div>
+                        <h4>Chefs Expertos</h4>
+                        <p>Aprende de los mejores chefs jurásicos</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🥚</div>
+                        <h4>Ingredientes Únicos</h4>
+                        <p>Descubre sabores prehistóricos</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <h4>Técnicas Ancestrales</h4>
+                        <p>Domina el arte del fuego primitivo</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🍃</div>
+                        <h4>100% Orgánico</h4>
+                        <p>Ingredientes frescos del Mesozoico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+        <section class="courses" id="cursos">
+            <div class="container">
+                <h3>Nuestros Cursos Jurásicos</h3>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-content">
+                            <h4 class="course-title">Dino clase</h4>
+                            <p class="course-description">Aprende los fundamentos de la cocina prehistórica</p>
+                            <div class="course-footer">
+                                <span class="course-price">$50.000</span>
+                                <button class="btn" onclick="openModal('Dino clase')">Inscribirse</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-content">
+                            <h4 class="course-title">Curso Prehistórico</h4>
+                            <p class="course-description">Domina las técnicas avanzadas de la cocina jurásica</p>
+                            <div class="course-footer">
+                                <span class="course-price">$250.000</span>
+                                <button class="btn" onclick="openModal('Curso Prehistórico')">Inscribirse</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-content">
+                            <h4 class="course-title">Curso de Dinopasteles</h4>
+                            <p class="course-description">Especialízate en la repostería de la era mesozoica</p>
+                            <div class="course-footer">
+                                <span class="course-price">$300.000</span>
+                                <button class="btn" onclick="openModal('Curso de Dinopasteles')">Inscribirse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h3>Lo que dicen nuestros estudiantes</h3>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <h4 class="testimonial-name">Trixie Triceratops</h4>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"¡Los cursos de DinoGang son increíbles! Ahora puedo cocinar deliciosas comidas para toda mi manada."</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4 class="testimonial-name">Rex T.</h4>
+                        <div class="testimonial-stars">★★★★☆</div>
+                        <p>"Nunca pensé que podría hacer más que cazar, ¡pero ahora soy un chef de primera!"</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <h4 class="testimonial-name">Veloci Raptor</h4>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"Rápido, fácil y delicioso. Justo como me gusta cazar... ¡digo, cocinar!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>DinoGang</h4>
+                    <p>Transformando la cocina prehistórica para el paladar moderno.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Email: info@dinogang.com</p>
+                    <p>Tel: 555-DINO-COOK</p>
+                    <p>Ubicación: Calle Jurásica 123, Ciudad Cretácica</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DinoGang. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="inscripcionModal" class="modal">
+        <div class="modal-content">
+            <span class="close"    onclick="closeModal()">&times;</span>
+            <h2>Inscripción para <span id="cursoTitulo"></span></h2>
+            <form id="inscripcionForm"   onsubmit="return handleSubmit(event)">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div>
+                    <label for="experiencia">Experiencia:</label>
+                    <textarea id="experiencia" name="experiencia" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar inscripción</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(curso) {
+            document.getElementById('inscripcionModal').style.display = 'block';
+            document.getElementById('cursoTitulo').textContent = curso;
+        }
+
+        function closeModal() {
+            document.getElementById('inscripcionModal').style.display = 'none';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const curso = document.getElementById('cursoTitulo').textContent;
+            console.log('Formulario enviado para el curso:', curso);
+            console.log('Datos del formulario:', Object.fromEntries(formData));
+            closeModal();
+            alert('¡Gracias por tu inscripción! Te contactaremos pronto.');
+            return false;
+        }
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('inscripcionModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
